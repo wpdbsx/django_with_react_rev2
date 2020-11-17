@@ -1,9 +1,16 @@
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # re_path('',TemplateView.as_view(template_name='root.html'),name='root'), 
+    # 아무주소를 넣어도 다매칭이된다 
+    path('',login_required(TemplateView.as_view(template_name='root.html')),name='root'), 
+    path('accounts/', include('accounts.urls')),
 ]
 
 

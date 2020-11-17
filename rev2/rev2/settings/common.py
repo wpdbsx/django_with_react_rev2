@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+ADMINS = [
+    ('YoonTae Je','wpdbsx@naver.com'),
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third Apps
-    'debug_toolbar'
+    'debug_toolbar',
+    'bootstrap4',
     # Locals Apps
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +91,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = "accounts.User"
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -138,3 +142,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 INTERNAL_IPS = [
     '127.0.0.1'
 ]
+#Email with send grid
+SENDGRID_API_KEY = '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'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+WELCOME_EMAIL_SENDER = "wpdbsx@naver.com"
