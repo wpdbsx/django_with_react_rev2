@@ -1,6 +1,7 @@
+from django.contrib.auth.forms import UserCreationForm
 from .models import User
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+
 class SignupForm(UserCreationForm):
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
@@ -18,3 +19,8 @@ class SignupForm(UserCreationForm):
             if qs.exists() :
                 raise forms.ValidationError("이미 등록된 이메일 주소입니다")
             return email
+
+class ProfileForm(forms.ModelForm) :
+    class Meta:
+        model = User
+        fields = ['avatar','first_name', 'last_name','website_url','bio','phone_number','gender']
