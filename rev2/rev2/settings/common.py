@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.humanize',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'bootstrap4',
     'django_pydenticon',
+    'easy_thumbnails',
     # Locals Apps
     'accounts',
     'instagram',
@@ -154,3 +156,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 WELCOME_EMAIL_SENDER = "wpdbsx@naver.com"
+
+LOGIN_REDIRECT_URL= '/'

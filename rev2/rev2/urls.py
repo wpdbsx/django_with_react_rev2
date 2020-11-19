@@ -2,18 +2,18 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include,re_path
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,RedirectView
 from django.contrib.auth.decorators import login_required
 from django_pydenticon.views import image as pydenticon_image
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path('',TemplateView.as_view(template_name='root.html'),name='root'), 
     # 아무주소를 넣어도 다매칭이된다 
-    path('',login_required(TemplateView.as_view(template_name='root.html')),name='root'), 
+    path('',RedirectView.as_view(pattern_name="instagram:index"),name='root'), 
     path('accounts/', include('accounts.urls')),
     path('identicon/image/<path:data>/', pydenticon_image,name="pydenticon_image"),
-    path('',include('instagram.urls')),
-
+    path('instagram/',include("instagram.urls")),
+   
 ]
 
 

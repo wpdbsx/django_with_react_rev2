@@ -1,0 +1,16 @@
+{% extends 'instagram/layout.html' %}
+
+
+{% load bootstrap4 %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+
+                {% include "_form.html" with submit_label="댓글쓰기" form_title="댓글쓰기" %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
