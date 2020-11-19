@@ -3,3 +3,4 @@ django-bootstrap4
 pillow
 django-pydenticon
 easy-thumbnails
+djangorestframework~=3.11.0
